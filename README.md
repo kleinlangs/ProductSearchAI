@@ -22,10 +22,11 @@ Serviços e URLs:
 - Elasticsearch: http://localhost:9200
 - Kibana: http://localhost:5601
 - LLM API: http://localhost:5000
-  Endpoints:
-    /vectorize – para gerar os embeddings dos produtos
-    /query – para consulta semântica
 - Streamlit: http://localhost:8501
+
+Endpoints LLM API:
+- /vectorize – para gerar os embeddings dos produtos
+- /query – para consulta semântica
 
 Fluxo de Uso:
 1. O indexer cria o índice "products" e insere 100 produtos.
