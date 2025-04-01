@@ -3,7 +3,7 @@ Buscas semânticas para e-commerce, integrando componentes como Elasticsearch, L
 
 ---
 
-Aplicação de busca semântica para e-commerce usando Elasticsearch, Kibana, um indexer para produtos,
+Aplicação de busca semântica usando Elasticsearch, Kibana, um indexer para produtos,
 uma API LLM para vetorização e consulta, e uma interface com Streamlit.
 
 Pré-requisitos:
