@@ -12,7 +12,7 @@ Pré-requisitos:
 
 Como Executar:
 1. Clone o repositório:
-   git clone [https://github.com/seuusuario/EcomSemanticSearch.git](https://github.com/kleinlangs/ProductSearchAI.git)
+   git clone [https://github.com/kleinlangs/kleinlangs.git](https://github.com/kleinlangs/kleinlangs.git)
    cd ProductSearchAI
 
 2. Inicie os containers:
