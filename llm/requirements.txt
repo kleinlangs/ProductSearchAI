@@ -1,0 +1,5 @@
+elasticsearch==8.7.0
+flask
+transformers
+torch
+sentence-transformers

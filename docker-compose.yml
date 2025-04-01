@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.7.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.7.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+  indexer:
+    build: ./indexer
+    container_name: indexer
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ./indexer:/app
+    command: python indexer.py
+
+  llm:
+    build: ./llm
+    container_name: llm
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ./llm:/app
+    ports:
+      - "5000:5000"
+    command: python llm.py
+
+  streamlit:
+    build: ./streamlit
+    container_name: streamlit
+    depends_on:
+      - elasticsearch
+      - llm
+    volumes:
+      - ./streamlit:/app
+    ports:
+      - "8501:8501"
+    command: streamlit run app.py --server.enableCORS false
+
+volumes:
+  esdata:
+
