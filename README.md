@@ -12,7 +12,7 @@ Pré-requisitos:
 
 Como Executar:
 1. Clone o repositório:
-   git clone [https://github.com/kleinlangs/kleinlangs.git](https://github.com/kleinlangs/kleinlangs.git)
+   git clone https://github.com/kleinlangs/ProductSearchAI.git
    cd ProductSearchAI
 
 2. Inicie os containers:
